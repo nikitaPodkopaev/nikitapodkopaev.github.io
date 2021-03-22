@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.min.js"></script>
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <section id="monthPayCalc">
+    <div id="calcBox">
+        <h1>Kuumaksete kalkulaator</h1>
+        <div class="dataContainer">
+            <span>Teenus:</span>
+            <div id="products">
+                
+            <div class="productBox">
+                <label class="checkBoxContainer">
+                    <input type="radio" name="servProd" value="päikesepaneelid" checked>
+                    <span class="energiaCheckBox"></span>
+                </label>
+                <span class="productName">Päikesepaneelid</span>
+            </div>
+            <div class="productBox">
+                <label class="checkBoxContainer">
+                    <input type="radio" name="servProd" value="soojuspump">
+                    <span class="energiaCheckBox"></span>
+                </label>
+                <span class="productName">Soojuspump</span>
+            </div>
+            <div class="productBox">
+                <label class="checkBoxContainer">
+                <input type="radio" name="servProd" value="elektritööd">
+                <span class="energiaCheckBox"></span>
+            </label>
+                <span class="productName">Elektritööd või 
+                    <br>
+                    gaasitööd</span>
+            </div>
+            <div class="productBox">
+                <label class="checkBoxContainer">
+                    <input type="radio" name="servProd" value="off-Grid">
+                    <span class="energiaCheckBox"></span>
+                </label>
+                <span class="productName">Off-Grid võrguvaba 
+                    <br>
+                    elekter</span>
+            </div>
+            <div class="productBox">
+                <label class="checkBoxContainer">
+                    <input type="radio" name="servProd" value="Elektriautode">
+                    <span class="energiaCheckBox"></span>
+                </label>
+                <span class="productName">Elektriautode 
+                   <br>
+                   laadimislahendused</span>
+            </div>
+        </div>
+        <hr class="dataSeparator">
+        </div>
+        <section id="mainFunc">
+        <div class="dataContainer">
+            <div class="smallerDataContainer">
+            <span>Summa:</span>
+            <div id="rangeContainer">
+                <div class="rangeValue" id="valueBox">
+                    <span class="valueBoxPos"><input type='text' class="value"  maxlength="6"><span class="euro">&#128;</span></span>
+                </div>
+                <input type="range" max="25000" min="300" id="sliderInput" value="8000">
+                <span id="rangeMinValue">300 &#128;</span>
+                <span id="rangeMaxValue">25 000 &#128;</span>
+            </div>
+            <hr class="dataSeparator">
+            <div class="additionalOptionContainer">
+                <div class="timeRangeBox">
+                    <span>Periood: <span class="important">*</span></span>
+                    <select name="period" id="period">
+                        <option value="">6 kuud</option>
+                    </select>
+                </div>
+                <div class="paymentBox">
+                    <span>Sissemakse (eur): <span class="important">*</span></span>
+                    <input type="number" value="0" id="payment">
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="dataContainer">
+            <div class="dataContainerPos">
+            <div class="descriptorBox">
+                <span>Interes</span>
+                <span class="value" id="interesVal">Interes</span>
+            </div>
+            <div class="descriptorBox descriptorBoxGrey">
+                <span>Lepingutasu</span>
+                <span class="value" id="contractVal" >Interes</span>
+            </div>
+            <div class="descriptorBox">
+                <span>Igakuine haldustasu</span>
+                <span class="value" id="mangFeeVal">Interes</span>
+            </div>
+            <div class="descriptorBox descriptorBoxGrey">
+                <span>Periood</span>
+                <span class="value" id="periodVal">Interes</span>
+            </div>
+            <div class="descriptorBox">
+                <span>Projekti maksumus</span>
+                <span class="value" id="projCostVal">Interes</span>
+            </div>
+            <div class="descriptorBox descriptorBoxBlue">
+                <span>Kuumakse</span>
+                <span class="value" id="monthPay">Interes</span>
+            </div>
+        </div>
+        </div>
+    </section>
+    </div>
+</section>
+    <script src="index.js"></script>
+</body>
+</html>
