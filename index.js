@@ -42,7 +42,7 @@ inputValue.addEventListener("input", function(){
     }
 })
 
-var url = "https://nikitapodkopaev.github.io/Kalkulaatori%20andmed.xlsx?raw=true";
+var url = "https://nikitapodkopaev.github.io/Kalkulaatori%20andmed.xlsx?raw=false";
 var oReq = new XMLHttpRequest();
 oReq.open("GET", url, true);
 oReq.responseType = "arraybuffer";
