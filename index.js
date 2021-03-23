@@ -133,7 +133,7 @@ setTimeout(function(){
     setValue()
 changeValues(1);
 allRadioCheckBoxes[0].click();
-},100)
+},10)
 
 slider.addEventListener("input",setValue )
 inputValue.addEventListener('click', function(){

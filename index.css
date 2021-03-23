@@ -5,6 +5,7 @@
     --lightGrey: #c7cdcf;
     --lighterGrey: rgba(222, 227, 228, 0.4);
     --lightBlue: #ecf4fb;
+    --red: #e74c3c;
 }
 *{
     margin: 0px;
@@ -285,6 +286,9 @@ align-self: center;
 .euroGreen{
     color: var(--green);
 }
+.important{
+    color: var(--red);
+}
 @media only screen and (max-width: 1700px) {
     #products{
         max-width: 100%;
@@ -333,5 +337,17 @@ align-self: center;
     }
     #contractBtn{
         width: 100%;
+    }
+    #period{
+        width: 80%;
+    }
+    #payment{
+        width: 80%;
+    }
+    .paymentBox{
+        font-size: 13px;
+    }
+    .timeRangeBox{
+        font-size: 13px;
     }
   }
