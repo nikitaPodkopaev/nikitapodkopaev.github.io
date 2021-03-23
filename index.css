@@ -30,7 +30,6 @@ body{
     text-align: center;
 }
 #monthPayCalc{
-    height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -289,7 +288,7 @@ align-self: center;
 .important{
     color: var(--red);
 }
-@media only screen and (max-width: 1700px) {
+@media only screen and (max-width: 1300px) {
     #products{
         max-width: 100%;
           display: flex;
@@ -297,9 +296,10 @@ align-self: center;
           flex-wrap: wrap;
           justify-content: center;
       }
+    
   }
 
-  @media only screen and (max-width: 576px) {
+  @media only screen and (max-width: 1200px) {
     #calcBox{
         width: 100%;
      
@@ -349,5 +349,11 @@ align-self: center;
     }
     .timeRangeBox{
         font-size: 13px;
+    }
+    .dataContainer{
+    margin-top: 20px;
+    }
+    .descriptorBox{
+        width: 82%;
     }
   }
