@@ -135,11 +135,6 @@ function setValue(){
     valueChecker();
 
 }
-window.onload = function() {
-	if(!window.location.hash) {
-		window.location.reload();
-	}
-}
 setTimeout(function(){
     setValue()
 changeValues(1);
