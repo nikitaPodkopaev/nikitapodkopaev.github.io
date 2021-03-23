@@ -138,7 +138,6 @@ function setValue(){
 window.onload = function() {
 	if(!window.location.hash) {
 		window.location.reload();
-        window.location.reload();
 	}
 }
 setTimeout(function(){
