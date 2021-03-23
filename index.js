@@ -24,7 +24,7 @@ let checkBoxState = "";
 let checkBoxId = 0;
 let userInputSum = 0;
 let defalutPeriods = {};
-
+let defalutCredits = {};
 oReq.onload = function(e) {
     var arraybuffer = oReq.response;
     var data = new Uint8Array(arraybuffer);
@@ -36,7 +36,6 @@ oReq.onload = function(e) {
     var worksheet = workbook.Sheets[first_sheet_name];
     json = XLSX.utils.sheet_to_json(worksheet,{raw:true});
     structureData(json);
-    console.log(json);
   }
   oReq.send();
 
@@ -69,6 +68,9 @@ function structureData(file){
         if(!(name in defalutPeriods)){
             defalutPeriods[name] = defaultperiod;
         } 
+        if(!(name in defalutCredits)){
+            defalutCredits[name] = defaultCredit;
+        } 
         dataArr.push(new productServised(interes, contractSum, monthSum, period, defaultCredit, defaultperiod, name))
     }
 }
@@ -77,6 +79,8 @@ allRadioCheckBoxes.forEach(radioCheckBox => radioCheckBox.addEventListener("clic
     removeAllOptions()
     checkBoxState = radioCheckBox.value;
     checkBoxId = radioCheckBox.id;
+    slider.value = defalutCredits[checkBoxState];
+    setValue();
     addNewOptions();
 }))
 
@@ -89,11 +93,11 @@ function removeAllOptions(){
 }
 function addNewOptions(){
     let servisePeriod = dataArr[checkBoxId].period;
+    console.log()
     let maxServisePeriod = parseInt(servisePeriod.substr(servisePeriod.search("-") + 1, servisePeriod.length));
-    let defaultPeriod = dataArr[checkBoxId].defaultperiod;
     for(let month = 6; month < maxServisePeriod + 6; month += 6){
         let newOption = document.createElement("option");
-        if (defaultPeriod == month && checkBoxState){
+        if (month == defalutPeriods[checkBoxState]){
             newOption.selected = true;
         }
         newOption.innerText = month + " kuud";
@@ -115,7 +119,10 @@ function changeValues(number){
     mangFeeVal.innerHTML = "<b>" + contractMonthSum + " €" + "</b>";
     periodVal.innerHTML = "<b>" + selectPeriod.value + " kuud" + "</b>";
     projCostVal.innerHTML = "<b>" + totalProjectCost.toLocaleString("ru-RU") + " €" +"</b>";
-    monthPay.innerHTML = Math.round(creditSum / 12, 2).toFixed(2) + " €"
+    monthPay.innerHTML = Math.round(totalProjectCost / selectedPeriod, 2).toFixed(2) + " €"; 
+    /* платеж единовренмеенный не отношу к общем выплатам. плачу равномеррное суммы тела кредита и товар
+    */
+
 }
 function setValue(){
     let newVal = parseInt((slider.value - slider.min) * 100 / (slider.max - slider.min));
@@ -126,8 +133,13 @@ function setValue(){
     document.querySelector('.valueBoxPos').style.left = `calc(${newVal}% + (${newPos}px))`;
     creditSum = slider.value - userInputSum;
     valueChecker();
-    console.log(creditSum);
 
+}
+window.onload = function() {
+	if(!window.location.hash) {
+		window.location.reload();
+        window.location.reload();
+	}
 }
 setTimeout(function(){
     setValue()
@@ -137,36 +149,38 @@ allRadioCheckBoxes[0].click();
 
 slider.addEventListener("input",setValue )
 inputValue.addEventListener('click', function(){
-    inputValue.value = "5";
-    slider.value = 0;
-    console.log(slider.value, inputValue.value)
-    setValue();
+  inputValue.value = "";
 })
 inputValue.addEventListener("input", function(){
     maxValue = 25000;
     minValue = 300;
     inputTextValue = inputValue.value.replace(/\s/g, "");
-    if(parseInt(inputValue.value.replace(/\s/g, "")) > maxValue){
+    if(parseInt(inputTextValue) > maxValue && inputTextValue.length >= 3){
         inputValue.value = maxValue;
         slider.value = maxValue;
         setValue();
     }
-    else if(parseInt(inputValue.value.replace(/\s/g, "")) < minValue){
+    else if(parseInt(inputTextValue) < minValue && inputTextValue.length >= 3){
+        setTimeout(function(){
         inputValue.value = minValue;
         slider.value = minValue;
         setValue();
+        },300)
     }
-    else{
-        slider.value = inputTextValue;
+    else if(inputTextValue.length >= 3){
+        setTimeout(function(){
+            slider.value = parseInt(inputTextValue);
         setValue();
+        },500)
+        
     }
 })
 payment.addEventListener("input", function(){
     let minValue = dataArr[parseInt(checkBoxId)].defaultCredit;
-    userInputSum = payment.value;
+    userInputSum = parseInt(payment.value);
     if(userInputSum > minValue){
-        userInputSum = minValue
-        payment.value = userInputSum;
+        userInputSum = minValue;
+        payment.value = minValue;
     }
     creditSum = slider.value - userInputSum
 
@@ -174,46 +188,46 @@ payment.addEventListener("input", function(){
 
 })
 function valueChecker(){
-    if(checkBoxState == "päikesepaneelid"){
+    if(checkBoxState == "PV"){
         changeValues(0);
     }
-    else if(checkBoxState == "soojuspump" && creditSum >= 300 && creditSum <=  1999){
+    else if(checkBoxState == "Soojuspumbad" && creditSum >= 300 && creditSum <=  1999){
         changeValues(1);
     }
-    else if(checkBoxState == "soojuspump" && creditSum >= 2000 && creditSum <=  5999){
+    else if(checkBoxState == "Soojuspumbad" && creditSum >= 2000 && creditSum <=  5999){
         changeValues(2);
     }
-    else if(checkBoxState == "soojuspump" && creditSum >= 6000 && creditSum <=  25000){
+    else if(checkBoxState == "Soojuspumbad" && creditSum >= 6000 && creditSum <=  25000){
         changeValues(3);
     }
-    else if(checkBoxState == "Elektriautode" && creditSum >= 300 && creditSum <=  1999){
+    else if(checkBoxState == "Elektriauotode laadijad" && creditSum >= 300 && creditSum <=  1999){
         changeValues(4);
     }
-    else if(checkBoxState == "Elektriautode" && creditSum >= 2000 && creditSum <=  5999){
+    else if(checkBoxState == "Elektriauotode laadijad" && creditSum >= 2000 && creditSum <=  5999){
         changeValues(5);
     }
-    else if(checkBoxState == "Elektriautode" && creditSum >= 6000 && creditSum <=  25000){
+    else if(checkBoxState == "Elektriauotode laadijad" && creditSum >= 6000 && creditSum <=  25000){
         changeValues(6);
     }
-    else if(checkBoxState == "off-Grid" && creditSum >= 300 && creditSum <=  1999){
+    else if(checkBoxState == "Võrguvaba elektrijaam Off-grid" && creditSum >= 300 && creditSum <=  1999){
         changeValues(7);
     }
-    else if(checkBoxState == "off-Grid" && creditSum >= 2000 && creditSum <=  5999){
+    else if(checkBoxState == "Võrguvaba elektrijaam Off-grid" && creditSum >= 2000 && creditSum <=  5999){
         changeValues(8);
     }
-    else if(checkBoxState == "off-Grid" && creditSum >= 6000 && creditSum <=  25000){
+    else if(checkBoxState == "Võrguvaba elektrijaam Off-grid" && creditSum >= 6000 && creditSum <=  25000){
         changeValues(9);
     }
-    else if(checkBoxState == "elektritööd" && creditSum >= 300 && creditSum <=  999){
+    else if(checkBoxState == "Elektri- ja gaasitööd" && creditSum >= 300 && creditSum <=  999){
         changeValues(10);
     }
-    else if(checkBoxState == "elektritööd" && creditSum >= 1000 && creditSum <=  1999){
+    else if(checkBoxState == "Elektri- ja gaasitööd" && creditSum >= 1000 && creditSum <=  1999){
         changeValues(11);
     }
-    else if(checkBoxState == "elektritööd" && creditSum >= 2000 && creditSum <=  5999){
+    else if(checkBoxState == "Elektri- ja gaasitööd" && creditSum >= 2000 && creditSum <=  5999){
         changeValues(12);
     }
-    else if(checkBoxState == "elektritööd" && creditSum >= 6000 && creditSum <=  25000){
+    else if(checkBoxState == "Elektri- ja gaasitööd" && creditSum >= 6000 && creditSum <=  25000){
         changeValues(13);
     }
 }
