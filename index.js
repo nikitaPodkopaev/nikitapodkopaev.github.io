@@ -60,7 +60,6 @@ function structureData(file){
         let defaultperiod = json[i].__EMPTY_6;
         let name = json[i]["kalkulaatori konfigureerimise sisendid"];
         if (defaultCredit == undefined || defaultperiod == undefined){
-            console.log(defaultCredit, defaultperiod)
             defaultperiod =  dataArr[i-2].defaultperiod;
             defaultCredit = dataArr[i-2].defaultCredit;
             name = dataArr[i-2]["kalkulaatori konfigureerimise sisendid"];
@@ -93,7 +92,6 @@ function removeAllOptions(){
 }
 function addNewOptions(){
     let servisePeriod = dataArr[checkBoxId].period;
-    console.log()
     let maxServisePeriod = parseInt(servisePeriod.substr(servisePeriod.search("-") + 1, servisePeriod.length));
     for(let month = 6; month < maxServisePeriod + 6; month += 6){
         let newOption = document.createElement("option");
@@ -120,8 +118,6 @@ function changeValues(number){
     periodVal.innerHTML = "<b>" + selectPeriod.value + " kuud" + "</b>";
     projCostVal.innerHTML = "<b>" + totalProjectCost.toLocaleString("ru-RU") + " €" +"</b>";
     monthPay.innerHTML = Math.round(totalProjectCost / selectedPeriod, 2).toFixed(2) + " €"; 
-    /* платеж единовренмеенный не отношу к общем выплатам. плачу равномеррное суммы тела кредита и товар
-    */
 
 }
 function setValue(){
