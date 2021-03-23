@@ -9,14 +9,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.min.js"></script>
 <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
-    <link rel="stylesheet" href="nikitapodkopaev.github.io/index.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <section id="monthPayCalc">
     <div id="calcBox">
         <h1>Kuumaksete kalkulaator</h1>
         <div class="dataContainer">
-            <span>Teenus:</span>
+            <span class="title">Teenus:</span>
             <div id="products">
                 
             <div class="productBox">
@@ -66,7 +66,7 @@
         <section id="mainFunc">
         <div class="dataContainer">
             <div class="smallerDataContainer">
-            <span>Summa:</span>
+            <span class="title">Summa:</span>
             <div id="rangeContainer">
                 <div class="rangeValue" id="valueBox">
                     <span class="valueBoxPos"><input type='text' class="value"  maxlength="6"><span class="euro">&#128;</span></span>
@@ -78,12 +78,12 @@
             <hr class="dataSeparator">
             <div class="additionalOptionContainer">
                 <div class="timeRangeBox">
-                    <span>Periood: <span class="important">*</span></span>
+                    <span class="title">Periood: <span class="important">*</span></span>
                     <select name="period" id="period">
                     </select>
                 </div>
                 <div class="paymentBox">
-                    <span>Sissemakse (eur): <span class="important">*</span></span>
+                    <span class="title">Sissemakse (eur): <span class="important">*</span></span>
                     <input type="number" value="0" id="payment">
                 </div>
             </div>
@@ -121,6 +121,6 @@
     <button id="contractBtn">Esitan taotluse <span id="rightArrow"></span></button>
     </div>
 </section>
-    <script src="nikitapodkopaev.github.io/index.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
