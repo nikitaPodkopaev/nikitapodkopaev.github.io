@@ -239,6 +239,7 @@ input:focus{
     align-items: center;
     height: 40px;
     padding: 0px 10px;
+    font-size: 14px;
 }
 .descriptorBoxGrey{
     background-color: var(--lighterGrey);
@@ -254,6 +255,35 @@ input:focus{
 }
 .euro{
     color: var(--white);
+}
+#contractBtn{
+    margin-top: 20px;
+    text-align: center;
+align-self: center;
+    width: 23%;
+    height: 35px;
+    background-color: var(--green);
+    color: var(--white);
+    border-radius: 16px;
+    border: none;
+    font-size: 16.5px;
+}
+#rightArrow{
+    border: solid var(--white);
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    position: relative;
+    bottom: 2px;
+}
+#monthPay{
+    color: var(--green);
+    font-size: 20px;
+}
+.euroGreen{
+    color: var(--green);
 }
 @media only screen and (max-width: 1700px) {
     #products{
@@ -272,7 +302,7 @@ input:focus{
     }
     .dataContainer{
         text-align: center;
-        width: 100%;
+        position: relative;
     }
     #mainFunc{
         display: block;
@@ -295,10 +325,13 @@ input:focus{
         background-color: rgb(52, 178, 52,0.5);
         border-radius: 25px;
     }
-    .smallerDataContainer{
-        width: 100%;
-    }
     #products{
         display: block;
+    }
+    #mainFunc .dataContainer{
+        width: 100%;
+    }
+    #contractBtn{
+        width: 100%;
     }
   }
