@@ -6,121 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.min.js"></script>
-<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
-    <link rel="stylesheet" href="https://nikitapodkopaev.github.io/index.css">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <section id="monthPayCalc">
-    <div id="calcBox">
-        <h1>Kuumaksete kalkulaator</h1>
-        <div class="dataContainer">
-            <span class="title">Teenus:</span>
-            <div id="products">
-                
-            <div class="productBox">
-                <label class="checkBoxContainer">
-                    <input type="radio" name="servProd" value="PV" class="radioCheck" id="0" checked>
-                    <span class="energiaCheckBox"></span>
-                </label>
-                <span class="productName">Päikesepaneelid</span>
-            </div>
-            <div class="productBox">
-                <label class="checkBoxContainer">
-                    <input type="radio" name="servProd" value="Soojuspumbad" class="radioCheck" id="1">
-                    <span class="energiaCheckBox"></span>
-                </label>
-                <span class="productName">Soojuspump</span>
-            </div>
-            <div class="productBox">
-                <label class="checkBoxContainer">
-                <input type="radio" name="servProd" value="Elektri- ja gaasitööd" class="radioCheck" id="2">
-                <span class="energiaCheckBox"></span>
-            </label>
-                <span class="productName">Elektritööd või 
-                    <br>
-                    gaasitööd</span>
-            </div>
-            <div class="productBox">
-                <label class="checkBoxContainer">
-                    <input type="radio" name="servProd" value="Võrguvaba elektrijaam Off-grid" class="radioCheck" id="3">
-                    <span class="energiaCheckBox"></span>
-                </label>
-                <span class="productName">Off-Grid võrguvaba 
-                    <br>
-                    elekter</span>
-            </div>
-            <div class="productBox">
-                <label class="checkBoxContainer">
-                    <input type="radio" name="servProd" value="Elektriauotode laadijad" class="radioCheck" id="4">
-                    <span class="energiaCheckBox"></span>
-                </label>
-                <span class="productName">Elektriautode 
-                   <br>
-                   laadimislahendused</span>
-            </div>
-        </div>
-        <hr class="dataSeparator">
-        </div>
-        <section id="mainFunc">
-        <div class="dataContainer">
-            <div class="smallerDataContainer">
-            <span class="title">Summa:</span>
-            <div id="rangeContainer">
-                <div class="rangeValue" id="valueBox">
-                    <span class="valueBoxPos"><input type='text' class="value"  maxlength="6"><span class="euro">&#128;</span></span>
-                </div>
-                <input type="range" max="25000" min="300" id="sliderInput" value="8000">
-                <span id="rangeMinValue">300 &#128;</span>
-                <span id="rangeMaxValue">25 000 &#128;</span>
-            </div>
-            <hr class="dataSeparator">
-            <div class="additionalOptionContainer">
-                <div class="timeRangeBox">
-                    <span class="title">Periood: <span class="important">*</span></span>
-                    <select name="period" id="period">
-                    </select>
-                </div>
-                <div class="paymentBox">
-                    <span class="title">Sissemakse (eur): <span class="important">*</span></span>
-                    <input type="number" value="0" id="payment">
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="dataContainer">
-            <div class="dataContainerPos">
-            <div class="descriptorBox">
-                <span>Interes</span>
-                <span class="value" id="interesVal">Interes</span>
-            </div>
-            <div class="descriptorBox descriptorBoxGrey">
-                <span>Lepingutasu</span>
-                <span class="value" id="contractVal" >Interes <span>&#128;</span></span>
-            </div>
-            <div class="descriptorBox">
-                <span>Igakuine haldustasu</span>
-                <span class="value" id="mangFeeVal">Interes <span>&#128;</span></span>
-            </div>
-            <div class="descriptorBox descriptorBoxGrey">
-                <span>Periood</span>
-                <span class="value" id="periodVal">Interes <span>kuud</span></span>
-            </div>
-            <div class="descriptorBox">
-                <span>Projekti maksumus</span>
-                <span class="value" id="projCostVal">Interes <span>&#128;</span></span>
-            </div>
-            <div class="descriptorBox descriptorBoxBlue">
-                <span>Kuumakse</span>
-                <span class="value" id="monthPay">Interes <span class="euroGreen">&#128;</span></span>
-            </div>
-        </div>
-        </div>
-    </section>
-    <button id="contractBtn">Esitan taotluse <span id="rightArrow"></span></button>
+    <div id="palindromBoxContainer">
+        <h1>Is a palindrome</h1>
+        <div id="elemtsContainer">
+        <div id="inputBoxContainer">
+        <input type="text" id="palindromInp" placeholder="Write you word here:">
+        <button id="addBtn">&#43;</button>
     </div>
-</section>
-    <script src="https://nikitapodkopaev.github.io/index.js"></script>
+        <table id="palindromeTabel">
+            <thead>
+                <tr>
+                  <th id="number">SEQ NO</th>
+                  <th>word</th>
+                  <th>result</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="palindromeTabelCont">
+              </tbody>
+        </table>
+    </div>
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>

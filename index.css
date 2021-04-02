@@ -1,362 +1,118 @@
-:root{
-    --white: #ffffff;
-    --green: rgb(52, 178, 52);
-    --grey: #34495e ;
-    --lightGrey: #c7cdcf;
-    --lighterGrey: rgba(222, 227, 228, 0.4);
-    --lightBlue: #ecf4fb;
-    --red: #e74c3c;
-}
 *{
     margin: 0px;
     padding: 0px;
-    font-family: 'Roboto', sans-serif;
-    color: var(--grey);
 }
-
 body{
-    background-color: var(--lightBlue);
+    background-color: #34495e;
+    font-family: 'Open Sans', sans-serif;
+    color: #2c3e50;
 }
-#calcBox{
-    width: 55%;
-    border-radius: 8px;
-    background-color: var(--white);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
-}
-#calcBox h1{
-    text-align: center;
-}
-#monthPayCalc{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.dataContainer{
-    width: 90%;
-    margin: 10px auto;
-}
-#products{
-  max-width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.productBox{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 5px 28px;
-    height: 100px;
-    background-color: var(--white);
-    border: 1px solid var(--lightGrey);
-    border-radius: 8px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    position: relative;
-    margin-right: 15px;
-}
-.productBox:hover{
-    background-color: var(--lighterGrey);
-}
-.checkBoxContainer{
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    cursor: pointer;
-    margin-bottom: 15px;
-}
-.checkBoxContainer input[type=checkbox]{
-    visibility: hidden; 
-}
-.energiaCheckBox{
-    position: absolute;
-    height: 25px; 
-    width: 25px; 
-    background-color: var(--white); 
-    border: 1px solid var(--lighterGrey);
+button{
+    border:none;
     border-radius: 4px;
 }
-.energiaCheckBox:after{
-    content: ""; 
-    position: absolute; 
-    display: none; 
-}
-.checkBoxContainer input:checked ~ .energiaCheckBox{
-background-color: var(--green);
-}
-.checkBoxContainer input:checked ~ .energiaCheckBox:after{
-    display: block;
-    }
-.checkBoxContainer .energiaCheckBox:after { 
-    left: 10px; 
-    bottom: 8px; 
-    width: 4px; 
-    height: 10px; 
-    border: solid white; 
-    border-width: 0 2.9px 2.9px 0; 
-    -webkit-transform: rotate(45deg); 
-    -ms-transform: rotate(45deg); 
-    transform: rotate(45deg); 
-} 
-.productName{
-    line-height: 1.6;
-}
-.dataSeparator{
-    margin-top: 20px;
-    margin-bottom: 30px;
-    border: none;
-    height: 1px;
-    background-color: var(--lighterGrey);
-}
-#rangeContainer{
-    width: 100%;
-    position: relative;
-    padding-top: 30px;
-    margin-top: 20px;
-}
-#sliderInput{
-    appearance: none;
-	margin: 20px 0;
-	width: 100%;
-    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, var(--green)), color-stop(100%, var(--green)));
-    background-size: 50% 100%;
-    background-repeat: no-repeat;
-}
-#sliderInput::-webkit-slider-runnable-track {
-	width: 100%;
-	height: 8px;
-	cursor: pointer;
-	background-color: rgb(52, 178, 52,0.5);
-	border-radius: 25px;
-}
-#sliderInput::-webkit-slider-thumb {
-	height: 20px;
-	width: 20px;
-	border-radius: 50%;
-	cursor: pointer;
-	appearance: none;
-	margin-top: -8px;
-    background: var(--green);
-}
-#sliderInput::-moz-range-progress{
-    background-color: red;
-}
-#mainFunc{
-    display: flex;
-    width: 90%;
+#palindromBoxContainer{
+    padding: 10px;
+    max-width: 25%;
+    background-color: #ecf0f1;
     margin: 0px auto;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 10%;
 }
-#mainFunc .dataContainer{
-    width: 50%;
+#palindromBoxContainer h1{
+    text-align: center;
 }
-#rangeMaxValue{
-    position: absolute;
-   bottom: 0px;
-   right: 0px;
+#palindromeTabel th{
+    text-transform: uppercase;
 }
-#valueBox input{
-width: 45%;
-height: 24px;
-background-color: var(--green);
-border: none;
-color: var(--white);
+#palindromeTabel{
+    margin: 0px auto;
+    width: 100%;
 }
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+#addBtn{
+    background-color:#3498db;
+    color: #ecf0f1;
+    padding: 2px 15px;
+    font-size: 24px;
 }
-input:focus{
-    outline: none;
+#palindromInp{
+    height: 30px;
+    width: 85%;
+    margin-right: 5px;
+    border: 2px solid #bdc3c7;
+    border-radius: 4px;
 }
-#valueBox .valueBoxPos{
-	width: 100px;
-	height: 24px;
-	line-height: 24px;
-	text-align: center;
-	background-color: var(--green);
-	font-size: 12px;
-	display: block;
-	position: absolute;
-    top:0px;
-	left: 50%;
-	transform: translate(-50%, 0);
-	border-radius: 32px;
-    font-weight: bold;
-    border: none;
+#palindromInp:focus, #palindromInp:active{
+    border: 2px solid #1abc9c;
 }
-#valueBox .valueBoxPos:before{
-	content: "";
-	position: absolute;
-	width: 0;
-	height: 0;
-	border-top: 7px solid var(--green);
-	border-left: 3.5px solid transparent;
-	border-right: 3.5px solid transparent;
-	top: 100%;
-	left: 50%;
-	margin-left: -5px;
-	margin-top: -1px;
-}
-.additionalOptionContainer{
-    display: flex;
-}
-.timeRangeBox{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-}
-.paymentBox{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-}
-#period{
-    width: 90%;
-    height: 40px;
-    padding: 10px;
-    margin-top: 10px;
- border: 1px solid var(--lighterGrey);
- font-weight: bold;
-}
-#payment{
-    width: 90%;
-    height: 20px;
-    padding: 10px;
-    margin-top: 10px;
- border: 1px solid var(--lighterGrey);
- font-weight: bold;
-}
-.smallerDataContainer{
-    width: 90%;
-}
-.descriptorBox{
+#inputBoxContainer{
     display: flex;
     align-items: center;
-    height: 40px;
-    padding: 0px 10px;
-    font-size: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
-.descriptorBoxGrey{
-    background-color: var(--lighterGrey);
+#elemtsContainer{
+    width: 80%;
+    margin: 10px auto;
 }
-.descriptorBoxBlue{
-    background-color: var(--lightBlue);
-}
-.dataContainerPos{
-    margin-top: 20px;
-}
-.value{
-    margin-left: auto;
-}
-.euro{
-    color: var(--white);
-}
-#contractBtn{
-    margin-top: 20px;
-    text-align: center;
-align-self: center;
-    width: 23%;
-    height: 35px;
-    background-color: var(--green);
-    color: var(--white);
-    border-radius: 16px;
+.delBtn{
+    width: 45px;
+    height: 30px;
+    background-color:#bdc3c7;
+    color: #ecf0f1;
     border: none;
-    font-size: 16.5px;
+    border-radius: 4px;
 }
-#rightArrow{
-    border: solid var(--white);
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 3px;
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-    position: relative;
-    bottom: 2px;
+.valueBox{
+    text-align: center;
+    width: 70%;
+    height: 30px;
+    border: none;
+    background-color: #ecf0f1;
 }
-#monthPay{
-    color: var(--green);
-    font-size: 20px;
-}
-.euroGreen{
-    color: var(--green);
-}
-.important{
-    color: var(--red);
-}
-.title{
-    font-weight: bold;
-}
-@media only screen and (max-width: 1300px) {
-    #products{
+@media only screen and (max-width: 700px) {
+    #palindromBoxContainer{
         max-width: 100%;
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          justify-content: center;
-      }
-    
+        margin-top: 0px;
+        border-radius: 0px;
+    }
+    #addBtn {
+        margin-top: 20px;
+        width: 95%;
+    }
+    #palindromInp{
+        margin-top: 10px;
+        width: 93%;
+        text-align: center;
+    }
+    #palindromeTabel{
+        margin-top: 20px;
+    }
+  }
+  @media only screen and (max-width: 1200px)  and (min-device-width: 700px) {
+    #palindromBoxContainer{
+        max-width: 90%;
+        margin-top: 0px;
+    }
+    #addBtn {
+        margin-top: 10px;
+        margin-right: 30px;
+    }
   }
 
-  @media only screen and (max-width: 1200px) {
-    #calcBox{
-        width: 100%;
-     
+  @media only screen and (max-width: 350px) {
+    #palindromBoxContainer{
+        max-width: 100%;
+        margin-top: 0px;
     }
-    .dataContainer{
-        text-align: center;
-        position: relative;
+    #addBtn {
+        margin-top: 10px;
+        width: 95%;
     }
-    #mainFunc{
-        display: block;
-        position: relative;
+    #palindromInp{
+        width: 91%;
     }
-    #rangeMaxValue{
-        position: absolute;
-        bottom:0px;
-        right: 0px;
-    }
-    #rangeMinValue{
-        position: absolute;
-        bottom:0px;
-        left: 0px;
-    }
-    #sliderInput::-webkit-slider-runnable-track {
-        width: 100%;
-        height: 10px;
-        cursor: pointer;
-        background-color: rgb(52, 178, 52,0.5);
-        border-radius: 25px;
-    }
-    #products{
-        display: block;
-    }
-    #mainFunc .dataContainer{
-        width: 100%;
-    }
-    #contractBtn{
-        width: 100%;
-    }
-    #period{
-        width: 80%;
-    }
-    #payment{
-        width: 80%;
-    }
-    .paymentBox{
-        font-size: 13px;
-    }
-    .timeRangeBox{
-        font-size: 13px;
-    }
-    .dataContainer{
-    margin-top: 20px;
-    }
-    .descriptorBox{
-        width: 82%;
-    }
+
   }
+
